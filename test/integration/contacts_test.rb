@@ -36,6 +36,27 @@ class ContactsTest < ActionDispatch::IntegrationTest
     assert_select 'span', 'No contacts found'
   end
 
+  test 'creating a contact with invalid data' do
+    contact = { first_name: 'Eric' }
+
+    post '/contacts', params: { contact: }
+
+    assert_select 'li', "Last name can't be blank"
+  end
+
+  test 'creating a contact with valid data' do
+    contact = { first_name: 'Elon', last_name: 'Musk', phone_number: '555-555-5555' }
+
+    post '/contacts', params: { contact: }
+
+    assert_redirected_to '/contacts'
+
+    follow_redirect!
+
+    assert_select 'p', 'Contact was successfully created'
+    assert_select 'span', 'Elon Musk'
+  end
+
   test 'destroy a contact' do
     contact_id = contacts(:eric_elliot).id
 

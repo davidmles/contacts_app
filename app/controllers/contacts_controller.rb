@@ -1,10 +1,24 @@
 # frozen_string_literal: true
 
 class ContactsController < ApplicationController
-  before_action :set_contact, except: %i[index search]
+  before_action :set_contact, only: :destroy
 
   def index
     @contacts = Contact.ordered_by_last_name
+  end
+
+  def new
+    @contact = Contact.new
+  end
+
+  def create
+    @contact = Contact.new(contact_params)
+
+    if @contact.save
+      redirect_to contacts_path, notice: t('.success')
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -23,5 +37,9 @@ class ContactsController < ApplicationController
 
   def set_contact
     @contact = Contact.find(params[:id])
+  end
+
+  def contact_params
+    params.require(:contact).permit(:first_name, :last_name, :phone_number)
   end
 end

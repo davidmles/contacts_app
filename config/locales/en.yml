@@ -6,6 +6,11 @@ en:
       title: Contacts
       add: + Add Contact
       no_contacts: No contacts found
+    new:
+      title: New
+      submit: Submit
+    create:
+      success: Contact was successfully created
     destroy:
       success: Contact was successfully destroyed
     contact:

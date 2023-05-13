@@ -1,0 +1,7 @@
+<div class="bg-red-50 text-red-500 px-3 py-2 rounded-lg mt-3">
+  <ul>
+    <% object.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
