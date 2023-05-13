@@ -15,4 +15,11 @@ class ContactTest < ActiveSupport::TestCase
       assert contact.errors[field].any?
     end
   end
+
+  test 'ordered_by_last_name scope' do
+    contacts = Contact.ordered_by_last_name
+
+    assert_equal contacts(:eric_elliot), contacts.first
+    assert_equal contacts(:steve_jobs), contacts.second
+  end
 end
