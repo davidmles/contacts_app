@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+eric_elliot:
+  first_name: Eric
+  last_name: Elliot
+  phone_number: 222-555-6575
+
+steve_jobs:
+  first_name: Steve
+  last_name: Jobsd
+  phone_number: 220-454-6754
