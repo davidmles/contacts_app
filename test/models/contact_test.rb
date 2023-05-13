@@ -23,6 +23,13 @@ class ContactTest < ActiveSupport::TestCase
     assert_equal contacts(:steve_jobs), contacts.second
   end
 
+  test 'search scope' do
+    contacts = Contact.search('Elliot')
+
+    assert_equal 1, contacts.count
+    assert_equal contacts(:eric_elliot), contacts.first
+  end
+
   test '#full_name' do
     contact = contacts(:eric_elliot)
 

@@ -23,4 +23,16 @@ class ContactsTest < ActionDispatch::IntegrationTest
     assert_select 'span', contacts(:eric_elliot).full_name
     assert_select 'span', contacts(:steve_jobs).full_name
   end
+
+  test 'search for an existing last name' do
+    get '/contacts/search?last_name=Elliot'
+
+    assert_select 'span', contacts(:eric_elliot).full_name
+  end
+
+  test 'search for a non-existing last name' do
+    get '/contacts/search?last_name=Wozniak'
+
+    assert_select 'span', 'No contacts found'
+  end
 end
