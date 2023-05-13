@@ -11,4 +11,6 @@ Contact.destroy_all
 ].each do |contact|
   Contact.create!(first_name: contact[:first_name], last_name: contact[:last_name],
                   phone_number: contact[:phone_number])
+
+  puts "Contact \"#{contact[:first_name]} #{contact[:last_name]}\" created."
 end
