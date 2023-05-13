@@ -1,0 +1,18 @@
+<div class="space-y-1">
+  <%= form.label :first_name, class: 'font-bold' %>
+  <%= form.text_field :first_name, required: true, class: 'input-field w-full lg:w-auto' %>
+</div>
+
+<div class="space-y-1">
+  <%= form.label :last_name, class: 'font-bold' %>
+  <%= form.text_field :last_name, required: true, class: 'input-field w-full lg:w-auto' %>
+</div>
+
+<div class="space-y-1">
+  <%= form.label :phone_number, class: 'font-bold' %>
+  <%= form.phone_field :phone_number, required: true, class: 'input-field w-full lg:w-auto' %>
+</div>
+
+<div class="pt-6">
+  <%= form.submit t('.submit'), class: 'btn btn-primary w-full lg:w-auto cursor-pointer' %>
+</div>

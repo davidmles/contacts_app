@@ -64,6 +64,24 @@ class ContactsTest < ActionDispatch::IntegrationTest
     assert_select 'span', 'Elon Musk'
   end
 
+  test 'show the edit contact form' do
+    contact = contacts(:eric_elliot)
+
+    get "/contacts/#{contact.id}/edit"
+
+    assert_select 'h2', 'Contacts'
+    assert_select 'h2', contact.full_name
+  end
+
+  test 'updating a contact with invalid data' do
+    contact = contacts(:eric_elliot)
+    contact_data = { first_name: '' }
+
+    put "/contacts/#{contact.id}", params: { contact: contact_data }
+
+    assert_select 'li', "First name can't be blank"
+  end
+
   test 'destroy a contact' do
     contact = contacts(:eric_elliot)
 

@@ -3,11 +3,11 @@
     <h2 class="font-semibold text-xl lg:text-3xl"><%= t('contacts.index.title') %></h2>
   <% end %>
   <span class="font-semibold text-xl lg:text-3xl">&gt;</span>
-  <h2 class="font-semibold text-xl lg:text-3xl"><%= t('.title') %></h2>
+  <h2 class="font-semibold text-xl lg:text-3xl"><%= @contact.full_name %></h2>
 </div>
 
 <%= render 'shared/errors', object: @contact if @contact.errors.any? %>
 
-<%= form_with model: @contact, url: contacts_path, class: 'mt-8 space-y-4' do |form| %>
+<%= form_with model: @contact, url: contact_path(@contact), method: :put, class: 'mt-8 space-y-4' do |form| %>
   <%= render 'form', form: form %>
 <% end %>

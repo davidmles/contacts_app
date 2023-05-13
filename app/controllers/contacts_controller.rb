@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ContactsController < ApplicationController
-  before_action :set_contact, only: :destroy
+  before_action :set_contact, only: %i[edit update destroy]
 
   def index
     @contacts = Contact.ordered_by_last_name
@@ -18,6 +18,14 @@ class ContactsController < ApplicationController
       redirect_to contacts_path, notice: t('.success')
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @contact.update(contact_params)
+      redirect_to contacts_path, notice: t('.success')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

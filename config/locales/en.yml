@@ -8,9 +8,12 @@ en:
       no_contacts: No contacts found
     new:
       title: New
+    form:
       submit: Submit
     create:
       success: Contact was successfully created
+    update:
+      success: Contact was successfully updated
     destroy:
       success: Contact was successfully destroyed
     contact:
