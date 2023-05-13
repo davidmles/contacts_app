@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   get '/', to: redirect('/contacts')
 
-  resources :contacts do
+  resources :contacts, except: :show do
     get 'search', to: 'contacts#search', on: :collection, as: :search
   end
 end
