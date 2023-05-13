@@ -36,6 +36,13 @@ class ContactsTest < ActionDispatch::IntegrationTest
     assert_select 'span', 'No contacts found'
   end
 
+  test 'show the new contact form' do
+    get '/contacts/new'
+
+    assert_select 'h2', 'Contacts'
+    assert_select 'h2', 'New'
+  end
+
   test 'creating a contact with invalid data' do
     contact = { first_name: 'Eric' }
 
