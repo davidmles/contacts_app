@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+- Install all gems: `bundle install`
+- Create the database: `bin/rails db:create db:schema:load`
+- Seed the sample data: `bin/rails db:seed`
 
-* Ruby version
+## Start the server
 
-* System dependencies
+If you want to start the server to test the app, just run `bin/rails server` and go to `http://localhost:3000` in your browser.
 
-* Configuration
+If you want to start the server and the Tailwind CSS compiler, run `bin/dev` and go to `http://localhost:3000` in your browser.
 
-* Database creation
+## Run the tests
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run the tests, run `bin/rails test` in your terminal.
