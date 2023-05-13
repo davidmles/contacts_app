@@ -24,6 +24,10 @@
       <% end %>
 
       <div class="px-12 pt-10 lg:pt-16">
+        <% flash.each do |key, value| %>
+          <%= render 'shared/flash', key: key, value: value %>
+        <% end %>
+
         <%= yield %>
       </div>
     </main>

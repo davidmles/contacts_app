@@ -5,5 +5,9 @@ en:
     index:
       add: + Add Contact
       no_contacts: No contacts found
+    destroy:
+      success: Contact was successfully destroyed
+    contact:
+      remove_confirmation: Are you sure you want to remove this contact?
     search:
       placeholder: Search for contact by last name...

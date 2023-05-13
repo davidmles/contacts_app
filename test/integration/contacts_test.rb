@@ -35,4 +35,16 @@ class ContactsTest < ActionDispatch::IntegrationTest
 
     assert_select 'span', 'No contacts found'
   end
+
+  test 'destroy a contact' do
+    contact_id = contacts(:eric_elliot).id
+
+    delete "/contacts/#{contact_id}"
+
+    assert_redirected_to '/contacts'
+
+    follow_redirect!
+
+    assert_select 'p', 'Contact was successfully destroyed'
+  end
 end
