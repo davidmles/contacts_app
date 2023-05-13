@@ -3,6 +3,7 @@ en:
     app_title: Phone Book App
   contacts:
     index:
+      title: Contacts
       add: + Add Contact
       no_contacts: No contacts found
     destroy:

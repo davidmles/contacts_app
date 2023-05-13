@@ -1,6 +1,6 @@
 <div class="flex justify-between">
   <%= link_to contacts_path do %>
-    <h2 class="font-semibold text-xl lg:text-3xl">Contacts</h2>
+    <h2 class="font-semibold text-xl lg:text-3xl"><%= t('.title') %></h2>
   <% end %>
 
   <%= link_to t('.add'), new_contact_path, class: 'btn btn-primary' %>
