@@ -44,17 +44,17 @@ class ContactsTest < ActionDispatch::IntegrationTest
   end
 
   test 'creating a contact with invalid data' do
-    contact = { first_name: 'Eric' }
+    contact_data = { first_name: 'Eric' }
 
-    post '/contacts', params: { contact: }
+    post '/contacts', params: { contact: contact_data }
 
     assert_select 'li', "Last name can't be blank"
   end
 
   test 'creating a contact with valid data' do
-    contact = { first_name: 'Elon', last_name: 'Musk', phone_number: '555-555-5555' }
+    contact_data = { first_name: 'Elon', last_name: 'Musk', phone_number: '555-555-5555' }
 
-    post '/contacts', params: { contact: }
+    post '/contacts', params: { contact: contact_data }
 
     assert_redirected_to '/contacts'
 
@@ -65,9 +65,9 @@ class ContactsTest < ActionDispatch::IntegrationTest
   end
 
   test 'destroy a contact' do
-    contact_id = contacts(:eric_elliot).id
+    contact = contacts(:eric_elliot)
 
-    delete "/contacts/#{contact_id}"
+    delete "/contacts/#{contact.id}"
 
     assert_redirected_to '/contacts'
 
