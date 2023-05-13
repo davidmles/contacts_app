@@ -1,0 +1,17 @@
+<div class="flex justify-between">
+  <h2 class="font-semibold text-xl lg:text-3xl">Contacts</h2>
+
+  <%= link_to t('.add'), new_contact_path, class: 'btn btn-primary' %>
+</div>
+
+<%= render 'search' %>
+
+<div class="mt-8">
+  <% if @contacts.any? %>
+    <%= render @contacts %>
+  <% else %>
+    <div class="mt-16 mb-10 text-center">
+      <span class="text-gray-500"><%= t('.no_contacts') %></span>
+    </div>
+  <% end %>
+</div>

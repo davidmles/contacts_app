@@ -1,3 +1,9 @@
 en:
   global:
     app_title: Phone Book App
+  contacts:
+    index:
+      add: + Add Contact
+      no_contacts: No contacts found
+    search:
+      placeholder: Search for contact by last name...

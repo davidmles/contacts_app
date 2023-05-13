@@ -22,4 +22,10 @@ class ContactTest < ActiveSupport::TestCase
     assert_equal contacts(:eric_elliot), contacts.first
     assert_equal contacts(:steve_jobs), contacts.second
   end
+
+  test '#full_name' do
+    contact = contacts(:eric_elliot)
+
+    assert_equal 'Eric Elliot', contact.full_name
+  end
 end

@@ -8,4 +8,12 @@ class ContactsTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to '/contacts'
   end
+
+  test 'index with no contacts' do
+    Contact.destroy_all
+
+    get '/contacts'
+
+    assert_select 'span', 'No contacts found'
+  end
 end
